@@ -10,8 +10,31 @@ enum custom_keycodes {
   ST_MACRO_0,
   ST_MACRO_1,
   ST_MACRO_WANT,
-  ST_MACRO_3,
-  ST_MACRO_4,
+  ST_MACRO_IS,
+  ST_MACRO_WAS,
+  ST_MACRO_ABOUT,
+  ST_MACRO_ABOVE,
+  ST_MACRO_ADD,
+  ST_MACRO_AFTER,
+  ST_MACRO_AGAIN,
+  ST_MACRO_AIR,
+  ST_MACRO_ALL,
+  ST_MACRO_ALMOST,
+  ST_MACRO_ALONG,
+  ST_MACRO_ALSO,
+  ST_MACRO_ALWAYS,
+  ST_MACRO_AN,
+  ST_MACRO_AND,
+  ST_MACRO_ANIMAL,
+  ST_MACRO_ANOTHER,
+  ST_MACRO_ANSWER,
+  ST_MACRO_ANY,
+  ST_MACRO_ARE,
+  ST_MACRO_AROUND,
+  ST_MACRO_AS,
+  ST_MACRO_ASK,
+  ST_MACRO_AT,
+  ST_MACRO_AWAY,
 };
 
 enum tap_dance_codes {
@@ -102,12 +125,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const uint16_t PROGMEM combo0[] = {KC_W, KC_A, KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM combo1[] = {KC_I, KC_S, COMBO_END};
-const uint16_t PROGMEM combo2[] = {KC_W, KC_S, KC_A, COMBO_END};
+const uint16_t PROGMEM combo2[] = {KC_W, KC_A, KC_S, COMBO_END};
+const uint16_t PROGMEM combo3[] = {KC_A, KC_B, KC_O, KC_U, COMBO_END};
+const uint16_t PROGMEM combo4[] = {KC_A, KC_B, KC_O, KC_V, COMBO_END};
+const uint16_t PROGMEM combo5[] = {KC_A, KC_D, COMBO_END};
+const uint16_t PROGMEM combo6[] = {KC_A, KC_F, COMBO_END};
+const uint16_t PROGMEM combo7[] = {KC_A, KC_G, KC_I, KC_N, COMBO_END};
+const uint16_t PROGMEM combo8[] = {KC_A, KC_I, KC_R, COMBO_END};
+const uint16_t PROGMEM combo9[] = {KC_A, KC_L, COMBO_END};
+const uint16_t PROGMEM combo10[] = {KC_A, KC_L, KC_M, COMBO_END};
+const uint16_t PROGMEM combo11[] = {KC_A, KC_G, KC_L, KC_O, COMBO_END};
+const uint16_t PROGMEM combo12[] = {KC_A, KC_L, KC_O, KC_S, COMBO_END};
+const uint16_t PROGMEM combo13[] = {KC_A, KC_L, KC_W, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo14[] = {KC_A, KC_N, COMBO_END};
+const uint16_t PROGMEM combo15[] = {KC_A, KC_N, KC_D, COMBO_END};
+const uint16_t PROGMEM combo16[] = {KC_A, KC_I, KC_N, COMBO_END};
+const uint16_t PROGMEM combo17[] = {KC_A, KC_H, KC_N, KC_O, COMBO_END};
+const uint16_t PROGMEM combo18[] = {KC_A, KC_N, KC_R, KC_S, KC_W, COMBO_END};
+const uint16_t PROGMEM combo19[] = {KC_A, KC_N, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo20[] = {KC_A, KC_R, KC_E, COMBO_END};
+const uint16_t PROGMEM combo21[] = {KC_A, KC_R, KC_O, KC_U, COMBO_END};
+const uint16_t PROGMEM combo22[] = {KC_A, KC_S, COMBO_END};
+const uint16_t PROGMEM combo23[] = {KC_A, KC_K, KC_S, COMBO_END};
+const uint16_t PROGMEM combo24[] = {KC_A, KC_T, COMBO_END};
+const uint16_t PROGMEM combo25[] = {KC_A, KC_W, KC_A, KC_Y, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, ST_MACRO_WANT),
-    COMBO(combo1, ST_MACRO_3),
-    COMBO(combo2, ST_MACRO_4),
+    COMBO(combo0, ST_MACRO_WANT),    COMBO(combo1, ST_MACRO_IS),
+    COMBO(combo2, ST_MACRO_WAS),     COMBO(combo3, ST_MACRO_ABOUT),
+    COMBO(combo4, ST_MACRO_ABOVE),   COMBO(combo5, ST_MACRO_ADD),
+    COMBO(combo6, ST_MACRO_AFTER),   COMBO(combo7, ST_MACRO_AGAIN),
+    COMBO(combo8, ST_MACRO_AIR),     COMBO(combo9, ST_MACRO_ALL),
+    COMBO(combo10, ST_MACRO_ALMOST), COMBO(combo11, ST_MACRO_ALONG),
+    COMBO(combo12, ST_MACRO_ALSO),   COMBO(combo13, ST_MACRO_ALWAYS),
+    COMBO(combo14, ST_MACRO_AN),     COMBO(combo15, ST_MACRO_AND),
+    COMBO(combo16, ST_MACRO_ANIMAL), COMBO(combo17, ST_MACRO_ANOTHER),
+    COMBO(combo18, ST_MACRO_ANSWER), COMBO(combo19, ST_MACRO_ANY),
+    COMBO(combo20, ST_MACRO_ARE),    COMBO(combo21, ST_MACRO_AROUND),
+    COMBO(combo22, ST_MACRO_AS),     COMBO(combo23, ST_MACRO_ASK),
+    COMBO(combo24, ST_MACRO_AT),     COMBO(combo25, ST_MACRO_AWAY),
 };
 
 extern rgb_config_t rgb_matrix_config;
@@ -376,19 +432,175 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
   case ST_MACRO_WANT:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_W) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_T)
+      SEND_STRING(SS_TAP(X_W) SS_DELAY(10) SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_N)
+                      SS_DELAY(10) SS_TAP(X_T) SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_IS:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_I) SS_DELAY(10) SS_TAP(X_S) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_WAS:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_W) SS_DELAY(10) SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_S)
                       SS_TAP(X_SPACE));
     }
     break;
-  case ST_MACRO_3:
+
+  case ST_MACRO_ABOUT:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_I) SS_DELAY(10) SS_TAP(X_S));
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_B) SS_DELAY(10) SS_TAP(X_O)
+                      SS_DELAY(10) SS_TAP(X_U) SS_DELAY(10) SS_TAP(X_T)
+                          SS_TAP(X_SPACE));
     }
     break;
-  case ST_MACRO_4:
+  case ST_MACRO_ABOVE:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_W) SS_DELAY(10) SS_TAP(X_A) SS_DELAY(10)
-                      SS_TAP(X_S));
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_B) SS_DELAY(10) SS_TAP(X_O)
+                      SS_DELAY(10) SS_TAP(X_V) SS_DELAY(10) SS_TAP(X_E)
+                          SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ADD:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_D) SS_DELAY(10) SS_TAP(X_D)
+                      SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_AFTER:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_F) SS_DELAY(10) SS_TAP(X_T)
+                      SS_DELAY(10) SS_TAP(X_E) SS_DELAY(10) SS_TAP(X_R)
+                          SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_AGAIN:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_G) SS_DELAY(10) SS_TAP(X_A)
+                      SS_DELAY(10) SS_TAP(X_I) SS_DELAY(10) SS_TAP(X_N)
+                          SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_AIR:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_I) SS_DELAY(10) SS_TAP(X_R)
+                      SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ALL:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_L) SS_DELAY(10) SS_TAP(X_L)
+                      SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ALMOST:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_L) SS_DELAY(10) SS_TAP(X_M)
+                      SS_DELAY(10) SS_TAP(X_O) SS_DELAY(10) SS_TAP(X_S)
+                          SS_DELAY(10) SS_TAP(X_T) SS_DELAY(10)
+                              SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ALONG:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_L) SS_DELAY(10) SS_TAP(X_O)
+                      SS_DELAY(10) SS_TAP(X_N) SS_DELAY(10) SS_TAP(X_G)
+                          SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ALSO:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_L) SS_DELAY(10) SS_TAP(X_S)
+                      SS_DELAY(10) SS_TAP(X_O) SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ALWAYS:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_L) SS_DELAY(10) SS_TAP(X_W)
+                      SS_DELAY(10) SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_Y)
+                          SS_DELAY(10) SS_TAP(X_S) SS_DELAY(10)
+                              SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_AN:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_N) SS_DELAY(10)
+                      SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_AND:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_N) SS_DELAY(10) SS_TAP(X_D)
+                      SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ANIMAL:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_N) SS_DELAY(10) SS_TAP(X_I)
+                      SS_DELAY(10) SS_TAP(X_M) SS_DELAY(10) SS_TAP(X_A)
+                          SS_DELAY(10) SS_TAP(X_L) SS_DELAY(10)
+                              SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ANOTHER:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_N) SS_DELAY(10) SS_TAP(X_O)
+                      SS_DELAY(10) SS_TAP(X_T) SS_DELAY(10) SS_TAP(X_H)
+                          SS_DELAY(10) SS_TAP(X_E) SS_DELAY(10) SS_TAP(X_R)
+                              SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ANSWER:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_N) SS_DELAY(10) SS_TAP(X_S)
+                      SS_DELAY(10) SS_TAP(X_W) SS_DELAY(10) SS_TAP(X_E)
+                          SS_DELAY(10) SS_TAP(X_R) SS_DELAY(10)
+                              SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ANY:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_N) SS_DELAY(10) SS_TAP(X_Y)
+                      SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ARE:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_R) SS_DELAY(10) SS_TAP(X_E)
+                      SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_AROUND:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_R) SS_DELAY(10) SS_TAP(X_O)
+                      SS_DELAY(10) SS_TAP(X_U) SS_DELAY(10) SS_TAP(X_N)
+                          SS_DELAY(10) SS_TAP(X_D) SS_DELAY(10)
+                              SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_AS:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_S) SS_DELAY(10)
+                      SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_ASK:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_S) SS_DELAY(10) SS_TAP(X_K)
+                      SS_DELAY(10) SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_AT:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_T) SS_DELAY(10)
+                      SS_TAP(X_SPACE));
+    }
+    break;
+  case ST_MACRO_AWAY:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_W) SS_DELAY(10) SS_TAP(X_A)
+                      SS_DELAY(10) SS_TAP(X_Y) SS_DELAY(10) SS_TAP(X_SPACE));
     }
     break;
 
