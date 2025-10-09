@@ -1,4 +1,4 @@
-name: Fetch and build layout
+name: Build Only without Oryx Pull
 
 on:
   workflow_dispatch:
