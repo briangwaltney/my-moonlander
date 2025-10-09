@@ -3,7 +3,7 @@ name: Fetch and build layout
 on:
   workflow_dispatch:
     inputs:
-      layout_id: "A0wGB"
+      layout_id:
         description: "Layout id available in URL https://configure.zsa.io/voyager/layouts/[ID_IS_HERE]/latest"
         required: true
         default: "A0wGB"
