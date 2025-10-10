@@ -10,6 +10,6 @@
 
 #define SERIAL_NUMBER "A0wGB/ear06y"
 #define LAYER_STATE_8BIT
-#define COMBO_COUNT 26
+#define COMBO_COUNT 41
 
 #define RGB_MATRIX_STARTUP_SPD 60

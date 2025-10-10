@@ -12,6 +12,7 @@ enum custom_keycodes {
   ST_MACRO_WANT,
   ST_MACRO_IS,
   ST_MACRO_WAS,
+
   ST_MACRO_ABOUT,
   ST_MACRO_ABOVE,
   ST_MACRO_ADD,
@@ -35,6 +36,7 @@ enum custom_keycodes {
   ST_MACRO_ASK,
   ST_MACRO_AT,
   ST_MACRO_AWAY,
+
   ST_MACRO_BACK,
   ST_MACRO_BE,
   ST_MACRO_BECAUSE,
