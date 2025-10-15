@@ -3116,7 +3116,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   case ST_MACRO_YEAR:
     if (record->event.pressed) {
-        SEND_STRING(SS_TAP(X_Y) SS_DELAY(10) SS_TAP(X_E) SS_DELAY(10) SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_R) SS_DELAY(10) SS_TAP(X_)) SS_DELAY(10) );
+      SEND_STRING(SS_TAP(X_Y) SS_DELAY(10) SS_TAP(X_E) SS_DELAY(10) SS_TAP(X_A)
+                      SS_DELAY(10) SS_TAP(X_R) SS_DELAY(10) SS_TAP(X_SPACE));
     }
     break;
   case ST_MACRO_YOU:
