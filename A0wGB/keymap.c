@@ -457,7 +457,7 @@ const uint16_t PROGMEM combo38[] = {KC_B, KC_O, KC_T, COMBO_END};
 const uint16_t PROGMEM combo39[] = {KC_B, KC_O, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo40[] = {KC_B, KC_U, KC_T, COMBO_END};
 
-const uint16_t PROGMEM combo46[] = {KC_C, KC_A, KC_L, KC_E, KC_D, COMBO_END};
+const uint16_t PROGMEM combo41[] = {KC_C, KC_A, KC_L, KC_E, KC_D, COMBO_END};
 const uint16_t PROGMEM combo42[] = {KC_C, KC_A, KC_M, KC_E, COMBO_END};
 const uint16_t PROGMEM combo43[] = {KC_C, KC_A, KC_N, COMBO_END};
 const uint16_t PROGMEM combo44[] = {KC_C, KC_A, KC_R, COMBO_END};
