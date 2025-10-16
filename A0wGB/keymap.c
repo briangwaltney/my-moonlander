@@ -1966,8 +1966,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   case ST_MACRO_IM:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_I) SS_DELAY(10) SS_TAP(X_M) SS_DELAY(10)
-                      SS_TAP(X_SPACE));
+      SEND_STRING(SS_LSFT(SS_TAP(X_I)) SS_DELAY(10) SS_TAP(X_QUOTE) SS_DELAY(10)
+                      SS_TAP(X_M) SS_DELAY(10) SS_TAP(X_SPACE));
     }
     break;
   case ST_MACRO_IF:
