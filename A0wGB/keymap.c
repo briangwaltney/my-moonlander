@@ -1370,12 +1370,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                       SS_DELAY(10) SS_TAP(X_Y) SS_DELAY(10) SS_TAP(X_SPACE));
     }
     break;
-  case ST_MACRO_IM:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_I)) SS_DELAY(10) SS_TAP(X_M));
-    }
-    break;
-
   case ST_MACRO_BACK:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_B) SS_DELAY(10) SS_TAP(X_A) SS_DELAY(10) SS_TAP(X_C)
