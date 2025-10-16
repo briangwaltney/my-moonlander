@@ -13,6 +13,7 @@ enum custom_keycodes {
   ST_MACRO_3,
   ST_MACRO_4,
   ST_MACRO_5,
+  ST_MACRO_6,
 };
 
 
@@ -73,12 +74,14 @@ const uint16_t PROGMEM combo0[] = { KC_W, KC_A, KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_I, KC_S, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_W, KC_S, KC_A, COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_A, KC_B, KC_O, KC_U, COMBO_END};
+const uint16_t PROGMEM combo4[] = { KC_I, KC_M, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, ST_MACRO_2),
     COMBO(combo1, ST_MACRO_3),
     COMBO(combo2, ST_MACRO_4),
     COMBO(combo3, ST_MACRO_5),
+    COMBO(combo4, ST_MACRO_6),
 };
 
 
@@ -289,6 +292,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ST_MACRO_5:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_A)SS_DELAY(10)  SS_TAP(X_B)SS_DELAY(10)  SS_TAP(X_O)SS_DELAY(10)  SS_TAP(X_U)SS_DELAY(10)  SS_TAP(X_T)SS_DELAY(10)  SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_6:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LSFT(SS_TAP(X_I))SS_DELAY(10)  SS_TAP(X_M));
     }
     break;
 
